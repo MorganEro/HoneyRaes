@@ -1,5 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
-import { CostumerViews } from "./CustomerViews"
+import { CustomerViews as CustomerViews } from "./CustomerViews"
 import { EmployeeViews } from "./EmployeeViews"
 
 
@@ -15,7 +15,7 @@ export const ApplicationViews = () => {
 
 	}
 	else {
-		return <CostumerViews />
+		return <CustomerViews />
 	}	
 }
 
