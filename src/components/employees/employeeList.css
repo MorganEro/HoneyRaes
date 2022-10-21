@@ -1,0 +1,11 @@
+.employees {
+    display:flex;
+    flex-direction: column;
+}
+
+.employee {
+    background-color: rgb(244, 216, 244) ;
+    border: 1px dotted darkmagenta;
+    padding: .7rem;
+    margin: .5rem 0;
+}
