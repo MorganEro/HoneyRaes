@@ -22,6 +22,15 @@ export const EmployeeForm = () => {
         })
     }, [])
 
+    const [feedback, setFeedback] = useState("")
+    useEffect(() => {
+        if (feedback !== "") {
+            // Clear feedback to make entire element disappear after 3 seconds
+            setTimeout(() => setFeedback(""), 3000);
+        }
+    }, [feedback])
+
+
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
@@ -40,10 +49,16 @@ export const EmployeeForm = () => {
             })
                 .then(response => response.json())
                 .then(() => {
-                })             
+                    setFeedback("Employee profile successfully saved")
+                })           
     }
 
     return (
+        <>
+       <div className={`${feedback.includes("Error") ? "error" : "feedback"} ${feedback === "" ? "invisible" : "visible"}`}>
+        {feedback}
+        </div>
+
         <form className="profile">
             <h2 className="profile__title">New Service Ticket</h2>
             <fieldset>
@@ -84,5 +99,6 @@ export const EmployeeForm = () => {
                 Save Profile
             </button>
         </form>
+        </>
     )
 }
